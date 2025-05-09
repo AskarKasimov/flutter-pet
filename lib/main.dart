@@ -1,15 +1,9 @@
-import 'package:flutter/widgets.dart';
-import 'package:flutter_pet/features/home_screen.dart';
-import 'package:flutter_pet/res/themes.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_pet/features/auth_screen.dart';
+import 'package:flutter_pet/res/app_theme.dart';
 
 void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
-      child: const MyApp(),
-    ),
-  );
+  runApp(MaterialApp(home: const MyApp(), theme: appTheme));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,17 +11,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Provider.of<ThemeProvider>(context).currentTheme;
-
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: Builder(
-        builder: (context) {
-          return Container(
-            color: theme.backgroundColor,
-            child: const SafeArea(child: HomeScreen()),
-          );
-        },
+    return Scaffold(
+      body: Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: 500),
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 18,
+              left: 12,
+              bottom: 32,
+              right: 12,
+            ),
+            child: AuthScreen(),
+          ),
+        ),
       ),
     );
   }
