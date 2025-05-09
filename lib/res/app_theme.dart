@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pet/res/colors.dart';
 
-final appTheme = ThemeData(
+final lightTheme = ThemeData(
   primaryColor: AppColors.yellow,
   textTheme: TextTheme(bodyMedium: TextStyle(fontSize: 22)),
   elevatedButtonTheme: ElevatedButtonThemeData(
@@ -14,4 +14,7 @@ final appTheme = ThemeData(
       textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
     ),
   ),
+  dialogTheme: DialogThemeData(backgroundColor: AppColors.grey),
+  scaffoldBackgroundColor: AppColors.white,
+  dividerColor: AppColors.darkGrey,
 );

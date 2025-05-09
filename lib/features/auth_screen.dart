@@ -34,24 +34,73 @@ class AuthScreen extends StatelessWidget {
                 text: 'Sign up',
                 onPressed: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute<void>(
-                      fullscreenDialog: true,
-                      builder: (BuildContext context) {
-                        return Scaffold(
-                          appBar: AppBar(
-                            title: Text('Full Screen Dialog Title'),
-                            leading: IconButton(
-                              icon: Icon(Icons.close),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
+                    PageRouteBuilder(
+                      opaque: false,
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return Padding(
+                          padding: EdgeInsets.only(
+                            top: MediaQuery.of(context).padding.top * 1.5,
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(50),
+                            ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.grey,
+                                  width: 0.5,
+                                ),
+                              ),
+                              child: Scaffold(
+                                backgroundColor:
+                                    Theme.of(
+                                      context,
+                                    ).dialogTheme.backgroundColor,
+                                body: GestureDetector(
+                                  onVerticalDragUpdate: (details) {
+                                    if (details.primaryDelta! > 3) {
+                                      Navigator.pop(context);
+                                    }
+                                  },
+                                  child: Column(
+                                    children: [
+                                      SizedBox(height: 7),
+                                      Center(
+                                        child: Container(
+                                          width: 80,
+                                          height: 4,
+                                          decoration: BoxDecoration(
+                                            color:
+                                                Theme.of(context).dividerColor,
+                                            borderRadius: BorderRadius.circular(
+                                              2.5,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
-                          body: Center(
-                            child: Text(
-                              'This is a full screen dialog in Flutter.',
-                            ),
+                        );
+                      },
+                      transitionsBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ) {
+                        return SlideTransition(
+                          position: animation.drive(
+                            Tween(
+                              begin: Offset(0.0, 1.0),
+                              end: Offset.zero,
+                            ).chain(CurveTween(curve: Curves.easeOutQuart)),
                           ),
+                          child: child,
                         );
                       },
                     ),

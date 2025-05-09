@@ -3,7 +3,13 @@ import 'package:flutter_pet/features/auth_screen.dart';
 import 'package:flutter_pet/res/app_theme.dart';
 
 void main() {
-  runApp(MaterialApp(home: const MyApp(), theme: appTheme));
+  runApp(
+    MaterialApp(
+      home: const MyApp(),
+      theme: lightTheme,
+      debugShowCheckedModeBanner: false,
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
