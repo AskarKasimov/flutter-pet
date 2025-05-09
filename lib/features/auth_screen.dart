@@ -37,13 +37,42 @@ class AuthScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           TitleText(text: "Create Account"),
-                          SizedBox(height: 5),
+                          SizedBox(height: 10),
                           Text(
-                            'Create your account to get started with note-taking!',
+                            'Create your account to get started with notes',
                             textAlign: TextAlign.center,
                           ),
-                          SizedBox(height: 20),
-                          TextField(),
+                          SizedBox(height: 40),
+                          TextField(
+                            decoration: InputDecoration(
+                              prefixIcon: Icon(
+                                Icons.mail_outline,
+                                color: Colors.black54,
+                              ),
+                              hintText: "Your email address",
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          TextField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              prefixIcon: Icon(
+                                Icons.lock_outline,
+                                color: Colors.black54,
+                              ),
+                              hintText: "Create a password",
+                            ),
+                          ),
+                          TextField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              prefixIcon: Icon(
+                                Icons.lock_outline,
+                                color: Colors.black54,
+                              ),
+                              hintText: "Repeat the password",
+                            ),
+                          ),
                         ],
                       ),
                     ),

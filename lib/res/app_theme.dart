@@ -3,7 +3,7 @@ import 'package:flutter_pet/res/colors.dart';
 
 final lightTheme = ThemeData(
   primaryColor: AppColors.yellow,
-  textTheme: TextTheme(bodyMedium: TextStyle(fontSize: 18)),
+  textTheme: TextTheme(bodyMedium: TextStyle(fontSize: 16)),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       backgroundColor: AppColors.yellow,
@@ -15,20 +15,9 @@ final lightTheme = ThemeData(
     ),
   ),
   inputDecorationTheme: InputDecorationTheme(
-    filled: true,
-    fillColor: Colors.grey[200],
-    border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(12),
-      borderSide: BorderSide.none,
-    ),
-    contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-    hintStyle: TextStyle(color: Colors.grey[600]),
+    hintStyle: TextStyle(color: AppColors.darkGrey, fontSize: 16),
+    contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 12),
   ),
-  // textSelectionTheme: TextSelectionThemeData(
-  //   cursorColor: Colors.blue,
-  //   selectionColor: Colors.blue.withOpacity(0.3),
-  //   selectionHandleColor: Colors.blue,
-  // ),
   dialogTheme: DialogThemeData(backgroundColor: AppColors.grey),
   scaffoldBackgroundColor: AppColors.white,
   dividerColor: AppColors.darkGrey,
