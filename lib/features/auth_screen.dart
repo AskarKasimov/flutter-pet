@@ -63,6 +63,7 @@ class AuthScreen extends StatelessWidget {
                               hintText: "Create a password",
                             ),
                           ),
+                          SizedBox(height: 10),
                           TextField(
                             obscureText: true,
                             decoration: InputDecoration(
