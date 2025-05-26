@@ -7,6 +7,8 @@ void main() {
     MaterialApp(
       home: const MyApp(),
       theme: lightTheme,
+      darkTheme: darkTheme,
+      themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
     ),
   );
